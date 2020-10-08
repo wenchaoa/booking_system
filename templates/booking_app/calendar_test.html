@@ -1,0 +1,29 @@
+{% extends 'booking_app/base.html' %}
+{% load staticfiles %} <!-- New line -->
+
+{% block title_block %}
+    Room
+{% endblock %}
+
+{% block body_block %}
+
+<!--Main content-->
+
+<div class="jumbotron p-4">
+    <h1>Fullcalendar demonstration Page</h1>
+</div>
+
+<!--Fullcalendar API-->
+<div class="jumbotron p-4">
+    <div id='calendar'></div>
+
+    <hr class="my-4">
+    <div class="jumbotron p-4">
+        <a class="btn btn-info" href="{% url 'booking_app:index' %}" role="button">
+                Back to Homepage
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

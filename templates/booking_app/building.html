@@ -1,0 +1,65 @@
+{% extends 'booking_app/base.html' %}
+{% load staticfiles %} <!-- New line -->
+
+{% block title_block %}
+    Building
+{% endblock %}
+
+{% block body_block %}
+
+<!--Main content-->
+<div class="jumbotron p-4">
+    {% if building %}
+    <h1>{{ building.name }}</h1>
+    <div>
+        <strong id="like_count">{{ building.likes }}</strong> likes
+        {% if user.is_authenticated %}
+        <button id="like_btn"
+            data-buildingid="{{ building.id }}"
+            class="btn btn-primary btn-sm"
+            type="button">
+            <span data-feather="thumbs-up"></span>
+            Like
+        </button>
+        {% endif %}
+    </div>
+        
+        
+</div>
+
+<div class="jumbotron p-4">
+        <p class="lead">
+        Hello, <strong>{{ user.username }}</strong>!<br/>
+        Here is {{ building.name }}<br/>
+        Please select the room you would like to book
+        </p>
+        <hr class="my-4">
+        {% if rooms %}
+        <ul>
+            {% for room in rooms %}
+            <li>
+                <p>
+                <a class="btn btn-outline-primary btn-md"
+                    href="/booking_system/building/{{ building.slug }}/{{ room.slug }}/">
+                    {{ room.name }}
+                </a>
+                </p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No room currently available in this building.</strong>
+        {% endif %}
+        
+        <hr class="my-4">
+        <div class="jumbotron p-4">
+            <a class="btn btn-info" href="{% url 'booking_app:index' %}" role="button">
+                    Back to Homepage
+            </a>
+        </div>
+    {% else %}
+    The specified building does not exist.
+    {% endif %}
+</div>
+
+{% endblock %}

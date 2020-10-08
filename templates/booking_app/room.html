@@ -1,0 +1,196 @@
+{% extends 'booking_app/base.html' %}
+{% load staticfiles %} <!-- New line -->
+
+{% block title_block %}
+    Room
+{% endblock %}
+
+{% block body_block %}
+
+<!--Main content-->
+
+{% if room %}
+<div class="jumbotron p-4">
+    <h1>{{ room.name }}</h1>
+</div>
+    
+{% if user.is_authenticated %}
+
+<div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">01/10/2020</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">02/10/2020</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">03/10/2020</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+                <!-- First Accordion -->
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      09:00 -- 11:00
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                            
+                            <button id = "tab1-0911-slot1"
+                                class="btn btn-outline-info btn-md"
+                                data-username = {{ user.username }}
+                                data-timeperiod = 09-11
+                                data-date = 01/10/2020
+                                data-room = {{ room.name }}
+                                type="button">
+                                Slot1
+                            </button>
+
+                            <button id = "tab1-0911-slot2"
+                                class="btn btn-outline-info btn-md"
+                                data-username = {{ user.username }}
+                                data-timeperiod = 09-11
+                                data-date = 01/10/2020
+                                data-room = {{ room.name }}
+                                type="button">
+                                Slot2
+                            </button>
+
+        
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    11:00 -- 13:00
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <button id = "tab1-1113-slot1"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 11-13
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot1
+                    </button>
+                    <button id = "tab1-1113-slot2"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 11-13
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot2
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    13:00 -- 15:00
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <button id = "tab1-1315-slot1"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 13-15
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot1
+                    </button>
+                    <button id = "tab1-1315-slot2"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 13-15
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot2
+                    </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    15:00 -- 17:00
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                    <button id = "tab1-1517-slot1"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 15-17
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot1
+                    </button>
+                    <button id = "tab1-1517-slot2"
+                        class="btn btn-outline-info btn-md"
+                        data-username = {{ user.username }}
+                        data-timeperiod = 15-17
+                        data-date = 01/10/2020
+                        data-room = {{ room.name }}
+                        type="button">
+                        Slot2
+                    </button>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          
+          
+          
+      </div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+</div>
+{% endif %}
+
+<!--Fullcalendar API-->
+<!--<div class="jumbotron p-4">-->
+<!--    <div id='calendar'></div>-->
+    
+    
+    <hr class="my-4">
+    <div class="jumbotron p-4">
+        <a class="btn btn-info" href="{% url 'booking_app:index' %}" role="button">
+                Back to Homepage
+        </a>
+    </div>
+</div>
+{% else %}
+<div class="jumbotron p-4">
+    <h1>The specified room does not exist.</h1>
+</div>
+{% endif %}
+
+{% endblock %}

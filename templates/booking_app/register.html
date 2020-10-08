@@ -1,0 +1,126 @@
+{% extends 'booking_app/base.html' %}
+{% load staticfiles %} <!-- New line -->
+
+{% block title_block %}
+    Register
+{% endblock %}
+
+{% block body_block %}
+<!--
+                  
+                  <li class="nav-item">
+                    
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Login</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Welcome!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">Username</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                              
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon2"> Password </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+                              </div>
+
+                            
+                                  
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Login</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  
+                </ul>
+                
+-->
+
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Register Here</h1>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <div>
+            {% if registered %}
+            <strong>Thank you for registering!</strong>
+            <hr class="my-4">
+            <a class="btn btn-primary" href="{% url 'booking_app:index' %}" role="button">Return to homepage</a>
+            <a class="btn btn-primary" href="{% url 'booking_app:profile' user.username %}" role="button">View my profile</a>
+            
+            
+            {% else %}
+             <!-- <strong>Please register here!</strong><br/> -->
+            <form id="user_form" method="post" action="{% url 'booking_app:register' %}"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <!--
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                -->
+                
+                <!--
+                <div class="form-group">
+                    <p class="required">
+                        <label class="required" for="id_username">Username:</label>
+                        <input class="form-control" id="id_username" maxlength="30" name="username" type="text" />
+                        <span class="helptext">
+                            Required. 30 characters or fewer.
+                            Letters, digits and @/./+/-/_ only.
+                        </span>
+                    </p>
+                    <p class="required">
+                        <label class="required" for="id_email">E-mail:</label>
+                        <input class="form-control" id="id_email" name="email" type="email" />
+                    </p>
+                    <p class="required">
+                        <label class="required" for="id_password1">Password:</label>
+                        <input class="form-control" id="id_password1" name="password1" type="password" />
+                    </p>
+                    <p class="required">
+                        <label class="required" for="id_password2">Password confirmation:</label>
+                        <input class="form-control" id="id_password2" name="password2" type="password" />
+                        <span class="helptext">
+                            Enter the same password as before, for verification.
+                        </span>
+                    </p>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+                -->
+                <input class="btn btn-primary" type="submit" name="submit" value="Register" />
+                
+                
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+        
+

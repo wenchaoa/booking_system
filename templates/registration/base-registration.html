@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load booking_app_template_tags %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+            
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- Title -->
+        <title>
+            School Facility Booking System  - {% block title_block %}Welcome!{% endblock %}
+        </title>
+    </head>
+    
+    
+    <body>
+        <header>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark p-0">
+                <a class="navbar-brand p-2" href="{% url 'booking_app:index' %}">Booking System</a>
+                <!-- Navbar buttons -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'booking_app:index' %}">Home</a></li>
+                        
+
+                        <!-- User haven't signed in　-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'registration_register' %}">Register</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'auth_login' %}">Login</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Nav bar -->
+        </header>
+        
+        <hr class="my-4">
+        <div class="container-fluid">
+            {% block body_block %}{% endblock %}
+        </div>
+        
+        
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/layout-jquery.js' %}"></script>
+        <script src="{% static 'js/ajax.js' %}"></script>
+        <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.js"></script>
+    </body>
+</html>
